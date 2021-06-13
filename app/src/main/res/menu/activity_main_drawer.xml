@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/crown"
+            android:menuCategory="secondary"
+            android:title="@string/satta_king" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/fast"
+            android:menuCategory="secondary"
+            android:title="@string/super_fast_king" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/first"
+            android:menuCategory="secondary"
+            android:title="@string/satta_king_first" />
+
+        <item
+            android:id="@+id/sattaNumberFragment"
+            android:icon="@drawable/emergency"
+            android:menuCategory="secondary"
+            android:title="@string/sattababa" />
+        <item
+            android:id="@+id/sattaLagaoFragment"
+            android:icon="@drawable/lasso"
+            android:menuCategory="secondary"
+            android:title="@string/satta_lagao" />
+
+
+    </group>
+
+
+    <item android:title="Upcoming"
+        android:menuCategory="secondary">
+
+        <menu>
+            <item
+                android:id="@+id/ny"
+                android:title="@string/lucky_number"
+
+                />
+
+
+        </menu>
+    </item>
+</menu>
