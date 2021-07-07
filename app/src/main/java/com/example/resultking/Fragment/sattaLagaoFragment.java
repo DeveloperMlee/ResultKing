@@ -4,13 +4,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.resultking.R;
 import com.example.resultking.WebViewController;
+import com.example.resultking.ui.sattaking.HomeFragment;
 
 public class sattaLagaoFragment extends Fragment {
 
@@ -44,9 +48,48 @@ public class sattaLagaoFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_satta_lagao, container, false);
 
         WebView webView=view.findViewById(R.id.webViewSattaLagao);
-        webView.loadUrl("http://sattababaking.com/");
-        webView.setWebViewClient(new WebViewController());
+        WebSettings webSettings=webView.getSettings ();
+        webSettings.setJavaScriptEnabled ( true );
+
+
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setSaveFormData(true);
+        webView.getSettings().setAllowContentAccess(true);
+
+        // new code
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(false);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowContentAccess(true);
+
+
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        webView.getSettings().setSupportZoom(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.setClickable(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowContentAccess(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+
+        webView.setWebViewClient ( new Callback());
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webView.loadUrl ( "http://sattababaking.com/" );
+        webView.setWebViewClient(new WebViewClient(){});
 
         return view;
+    }
+    private class Callback extends WebViewClient
+    {
+        @Override
+        public boolean shouldOverrideKeyEvent ( WebView view , KeyEvent event ) {
+            return false;
+        }
     }
 }
